@@ -6,6 +6,8 @@ from prts.interfaces.time_series_metrics import InterfaceTimeSeriesMetrics
 
 
 class TimeSeriesPrecision(InterfaceTimeSeriesMetrics):
+    """ This class calculates precision for time series """
+
     def score(self, real: np.ndarray, pred: np.ndarray) -> Any:
         """
 

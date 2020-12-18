@@ -17,6 +17,7 @@ test:  ## run all test
 # -------------------------
 # coding style
 # -------------------------
+.PHONY: lint
 lint: ## type check
 	$(PYTHON) -m flake8 prts
 
@@ -30,6 +31,7 @@ lint: ## type check
 #		--html-report ./mypyreport \
 #		prts
 
+.PHONY: format
 format: ## auto format
 	$(PYTHON) -m autoflake \
 		--in-place \
@@ -40,6 +42,12 @@ format: ## auto format
 	$(PYTHON) -m black \
 		--line-length=119 \
 		prts
+
+.PHONY: pre-push
+pre-push:  ## run before `git push`
+	make test
+	make format
+	make lint
 
 
 help:  ## Show all of tasks

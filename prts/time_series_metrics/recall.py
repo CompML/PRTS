@@ -6,8 +6,7 @@ from prts.interfaces.time_series_metrics import InterfaceTimeSeriesMetrics
 
 
 class TimeSeriesRecall(InterfaceTimeSeriesMetrics):
-    def __init__(self):
-        pass
+    """ This class calculates recall for time series """
 
     def score(self, real: np.ndarray, pred: np.ndarray) -> Any:
         """
