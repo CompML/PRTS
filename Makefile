@@ -37,7 +37,9 @@ format: ## auto format
 		--remove-unused-variables \
 		--recursive prts
 	$(PYTHON) -m isort prts
-	$(PYTHON) -m black --check --diff --line-length 119 prts
+	$(PYTHON) -m black \
+		--line-length=119 \
+		prts
 
 
 help:  ## Show all of tasks
