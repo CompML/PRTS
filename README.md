@@ -6,3 +6,6 @@ Unofficial python implementation of [Precision and Recall for Time Series](https
 
 ## References
 * Tatbul, Nesime, Tae Jun Lee, Stan Zdonik, Mejbah Alam, and Justin Gottschlich. 2018. “Precision and Recall for Time Series.” In Advances in Neural Information Processing Systems, edited by S. Bengio, H. Wallach, H. Larochelle, K. Grauman, N. Cesa-Bianchi, and R. Garnett, 31:1920–30. Curran Associates, Inc.
+
+## LICENSE
+This repository is Apache-style licensed, as found in the [LICENSE file](LICENSE).
