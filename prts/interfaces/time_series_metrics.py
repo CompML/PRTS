@@ -41,7 +41,7 @@ class InterfaceTimeSeriesMetrics:
         Returns:
             float: the selected gamma value
         """
-        assert type(overlap) == int, TypeError()
+        assert type(overlap) == int, TypeError("")
 
         if gamma == "one":
             return 1.0
@@ -56,4 +56,4 @@ class InterfaceTimeSeriesMetrics:
             else:
                 return 1.0
         else:
-            ValueError(f"Expected one of one, reciprocal, udf_gamma. gamma type string: {gamma}")
+            raise ValueError(f"Expected one of one, reciprocal, udf_gamma. gamma type string: {gamma}")

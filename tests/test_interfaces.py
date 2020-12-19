@@ -18,10 +18,8 @@ class TestPrecision(unittest.TestCase):
         self.assertEqual(obj._gamma_select("reciprocal", 2), 0.5)
         self.assertEqual(obj._gamma_select("udf_gamma", 2), 1.0)
         self.assertEqual(obj._gamma_select("udf_gamma", 1), 1.0)
-
-        # TODO: assertRaisesだとValueErrorのチェックができなさそう?
-        # with self.assertRaises(ValueError):
-            # _ = obj._gamma_select("two", 1)
+        with self.assertRaises(ValueError):
+            _ = obj._gamma_select("two", 1)
 
 if __name__ == '__main__':
     unittest.main()
