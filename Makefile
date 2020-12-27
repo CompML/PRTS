@@ -8,10 +8,12 @@ PYTHON := $(POETRY_RUN) python
 # -------------------------
 .PHONY: install
 install: ## install this project
+	pip install poetry
 	poetry install --no-dev
 
 .PHONY: develop
 develop: ## setup project for development
+	pip install poetry
 	poetry install
 
 # -------------------------

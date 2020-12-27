@@ -10,11 +10,22 @@ Unofficial python implementation of [Precision and Recall for Time Series](https
 
 ## Installation
 
-You can use the following command to install poetry and dependencies.
+
+### PyPI
+
+To install PRTS, use pip.
 
 ```bash
-$ pip install poetry
-$ poetry install
+$ pip install prts
+```
+
+### from github
+You can also use the following command to install.
+
+```bash
+$ git clone https://github.com/CompML/PRTS.git
+$ cd PRTS
+$ make install  # (or make develop)
 ```
 
 ## Usage
