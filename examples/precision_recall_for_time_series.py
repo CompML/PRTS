@@ -70,6 +70,7 @@ def main():
     ax3.grid(True)
 
     ax3.tick_params("x", rotation=45)
+    plt.savefig("examples/example.png")
     plt.show()
     fig.clear()
 
