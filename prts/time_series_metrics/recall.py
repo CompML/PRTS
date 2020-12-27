@@ -56,8 +56,8 @@ class TimeSeriesRecall(InterfaceTimeSeriesMetrics):
             range_r = real_anomalies[i, :]
             for j in range(len(predicted_anomalies)):
                 range_p = predicted_anomalies[j, :]
-                omega_reward += self._compute_omega_reward(range_r, range_p, overlap_count, 1)
-            overlap_reward = self._gamma_function(overlap_count, 1) * omega_reward
+                omega_reward += self._compute_omega_reward(range_r, range_p, overlap_count)
+            overlap_reward = self._gamma_function(overlap_count) * omega_reward
 
             if overlap_count[0] > 0:
                 existence_reward = 1

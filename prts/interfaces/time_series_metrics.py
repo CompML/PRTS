@@ -60,7 +60,7 @@ class InterfaceTimeSeriesMetrics:
 
     def _gamma_function(self, overlap_count):
         overlap = overlap_count[0]
-        return self._gamma_select(self.cardinakity, overlap)
+        return self._gamma_select(self.cardinality, overlap)
 
     def _compute_omega_reward(self, r1, r2, overlap_count):
         if r1[1] < r2[0] or r1[0] > r2[1]:

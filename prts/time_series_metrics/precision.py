@@ -56,8 +56,8 @@ class TimeSeriesPrecision(InterfaceTimeSeriesMetrics):
             overlap_count = [0]
             for j in range(len(real_anomalies)):
                 range_r = real_anomalies[j, :]
-                omega_reward += self._compute_omega_reward(range_p, range_r, overlap_count, 0)
-            overlap_reward = self._gamma_function(overlap_count, 0) * omega_reward
+                omega_reward += self._compute_omega_reward(range_p, range_r, overlap_count)
+            overlap_reward = self._gamma_function(overlap_count) * omega_reward
             if overlap_count[0] > 0:
                 existence_reward = 1
             else:
