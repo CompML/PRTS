@@ -20,3 +20,4 @@ exclude =
     tests/fixtures/
     tests/repositories/fixtures/
     tests/utils/fixtures/
+
