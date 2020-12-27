@@ -8,6 +8,8 @@ Unofficial python implementation of [Precision and Recall for Time Series](https
 
 >Classical anomaly detection is principally concerned with point-based anomalies, those anomalies that occur at a single point in time. Yet, many real-world anomalies are range-based, meaning they occur over a period of time. Motivated by this observation, we present a new mathematical model to evaluate the accuracy of time series classification algorithms. Our model expands the well-known Precision and Recall metrics to measure ranges, while simultaneously enabling customization support for domain-specific preferences.
 
+This is the open source software released by [Computational Mathematics Laboratory](https://sites.google.com/view/compml/). It is available for download on [PyPI](https://pypi.org/project/prts/).
+
 ## Installation
 
 
