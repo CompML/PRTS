@@ -1,8 +1,8 @@
 # Precision and Recall for Time Series
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-
 ![Python package](https://github.com/CompML/PRTS/workflows/Python%20package/badge.svg?branch=main)
+[![PyPI version](https://badge.fury.io/py/prts.svg)](https://badge.fury.io/py/prts)
 
 Unofficial python implementation of [Precision and Recall for Time Series](https://papers.nips.cc/paper/2018/file/8f468c873a32bb0619eaeb2050ba45d1-Paper.pdf).
 
