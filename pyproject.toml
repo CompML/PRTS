@@ -13,8 +13,12 @@ isort = "^5.6.4"
 black = "^20.8b1"
 pytest = "^6.2.1"
 pytest-cov = "^2.10.1"
+sklearn = "^0.0"
 
 [tool.poetry.dev-dependencies]
+sklearn = "^0.0"
+matplotlib = "^3.3.3"
+seaborn = "^0.11.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
