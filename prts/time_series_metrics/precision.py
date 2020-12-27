@@ -28,6 +28,27 @@ class TimeSeriesPrecision(InterfaceTimeSeriesMetrics):
         self.cardinality = cardinality
         self.bias = bias
 
+    def _update_precision(self, real_anomalies, predicted_anomalies):
+        precision = 0
+        if len(predicted_anomalies) == 0:
+            return 0
+        for i in range(len(predicted_anomalies)):
+            range_p = predicted_anomalies[i, :]
+            omega_reward = 0
+            overlap_count = [0]
+            for j in range(len(real_anomalies)):
+                range_r = real_anomalies[j, :]
+                omega_reward += self._compute_omega_reward(range_p, range_r, overlap_count, 0)
+            overlap_reward = self._gamma_function(overlap_count, 0) * omega_reward
+            if overlap_count[0] > 0:
+                existence_reward = 1
+            else:
+                existence_reward = 0
+
+            precision += self.alpha_p * existence_reward + (1 - self.alpha_p) * overlap_reward
+        precision /= len(predicted_anomalies)
+        return precision
+
     def score(self, real: np.ndarray, pred: np.ndarray) -> Any:
         """
 
@@ -38,4 +59,11 @@ class TimeSeriesPrecision(InterfaceTimeSeriesMetrics):
         Returns:
 
         """
-        # TODO: impl
+
+        assert isinstance(real, np.ndarray)
+        assert isinstance(pred, np.ndarray)
+        real_anomalies, predicted_anomalies = self._prepare_data(real, pred)
+        precision = self._update_precision(real_anomalies, predicted_anomalies)
+
+        return precision
+
