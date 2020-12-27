@@ -46,8 +46,11 @@ print("recall_back=", recall_back)
 
 ## Examples
 
+We provide a simple example code.
+By the following command you can run the example code for the toy dataset and visualize the metrics.
+
 ```bash
-python3 examples/precision_recall_for_time_series.py
+$ python3 examples/precision_recall_for_time_series.py
 ```
 
 ![example output](./examples/example.png)
