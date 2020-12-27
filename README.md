@@ -17,12 +17,50 @@ $ pip install poetry
 $ poetry install
 ```
 
+## Usage
+
+```python
+from prts import ts_precision, ts_recall
+
+
+# calculate time series precision score
+precision_flat = ts_precision(real, pred, alpha=0.0, cardinality="reciprocal", bias="flat")
+precision_front = ts_precision(real, pred, alpha=0.0, cardinality="reciprocal", bias="front")
+precision_middle = ts_precision(real, pred, alpha=0.0, cardinality="reciprocal", bias="middle")
+precision_back = ts_precision(real, pred, alpha=0.0, cardinality="reciprocal", bias="back")
+print("precision_flat=", precision_flat)
+print("precision_front=", precision_front)
+print("precision_middle=", precision_middle)
+print("precision_back=", precision_back)
+
+# calculate time series recall score
+recall_flat = ts_recall(real, pred, alpha=0.0, cardinality="reciprocal", bias="flat")
+recall_front = ts_recall(real, pred, alpha=0.0, cardinality="reciprocal", bias="front")
+recall_middle = ts_recall(real, pred, alpha=0.0, cardinality="reciprocal", bias="middle")
+recall_back = ts_recall(real, pred, alpha=0.0, cardinality="reciprocal", bias="back")
+print("recall_flat=", recall_flat)
+print("recall_front=", recall_front)
+print("recall_middle=", recall_middle)
+print("recall_back=", recall_back)
+```
+
+## Examples
+
+We provide a simple example code.
+By the following command you can run the example code for the toy dataset and visualize the metrics.
+
+```bash
+$ python3 examples/precision_recall_for_time_series.py
+```
+
+![example output](./examples/example.png)
+
 ## Tests
 
 You can run all the test codes as follows:
 
 ```bash
-$ make tests
+$ make test
 ```
 
 ## References
