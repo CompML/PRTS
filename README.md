@@ -60,7 +60,7 @@ $ python3 examples/precision_recall_for_time_series.py
 You can run all the test codes as follows:
 
 ```bash
-$ make tests
+$ make test
 ```
 
 ## References
