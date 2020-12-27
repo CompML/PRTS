@@ -137,7 +137,7 @@ colors = ["colorama (>=0.4.3,<0.5.0)"]
 name = "joblib"
 version = "1.0.0"
 description = "Lightweight pipelining with Python functions"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -342,7 +342,7 @@ python-versions = "*"
 name = "scikit-learn"
 version = "0.24.0"
 description = "A set of python modules for machine learning and data mining"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -362,7 +362,7 @@ tests = ["matplotlib (>=2.1.1)", "scikit-image (>=0.13)", "pandas (>=0.25.0)", "
 name = "scipy"
 version = "1.5.4"
 description = "SciPy: Scientific Library for Python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -395,7 +395,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 name = "sklearn"
 version = "0.0"
 description = "A set of python modules for machine learning and data mining"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -406,7 +406,7 @@ scikit-learn = "*"
 name = "threadpoolctl"
 version = "2.1.0"
 description = "threadpoolctl"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.5"
 
@@ -437,7 +437,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "f46323cdc099bf2be6acbcfa520f1cc05e56ba8944ca72e78932f4e19787c0f7"
+content-hash = "df13dd687babb5a5a540d777429794fee4c9653b42c43b5ec25da94522b95a3d"
 
 [metadata.files]
 appdirs = [
