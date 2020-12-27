@@ -1,16 +1,16 @@
 import unittest
 
-from prts.interfaces.time_series_metrics import InterfaceTimeSeriesMetrics
+from prts.base.time_series_metrics import BaseTimeSeriesMetrics
 from prts.time_series_metrics.precision import TimeSeriesPrecision
 
 
 class TestPrecision(unittest.TestCase):
-    def test_PrecisionClass_inherited_InterfaceTimeSeriesMetrics(self):
-        """ Check if it inherits InterfaceTimeSeriesMetircs.
+    def test_PrecisionClass_inherited_BaseTimeSeriesMetrics(self):
+        """ Check if it inherits BaseTimeSeriesMetircs.
         """
         obj = TimeSeriesPrecision()
         self.assertTrue(
-            isinstance(obj, InterfaceTimeSeriesMetrics)
+            isinstance(obj, BaseTimeSeriesMetrics)
         )
 
     def test_PrecisionClass_init(self):

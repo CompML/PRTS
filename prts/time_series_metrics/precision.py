@@ -2,10 +2,10 @@ from typing import Any
 
 import numpy as np
 
-from prts.interfaces.time_series_metrics import InterfaceTimeSeriesMetrics
+from prts.base.time_series_metrics import BaseTimeSeriesMetrics
 
 
-class TimeSeriesPrecision(InterfaceTimeSeriesMetrics):
+class TimeSeriesPrecision(BaseTimeSeriesMetrics):
     """ This class calculates precision for time series """
 
     def __init__(self, beta=1.0, alpha=0.0, cardinality="one", bias="flat"):

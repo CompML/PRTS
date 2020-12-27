@@ -2,10 +2,10 @@ from typing import Any
 
 import numpy as np
 
-from prts.interfaces.time_series_metrics import InterfaceTimeSeriesMetrics
+from prts.base.time_series_metrics import BaseTimeSeriesMetrics
 
 
-class TimeSeriesPrecisionRecall(InterfaceTimeSeriesMetrics):
+class TimeSeriesPrecisionRecall(BaseTimeSeriesMetrics):
     """ This class calculates precision and recall for time series """
 
     def score(self, real: np.ndarray, pred: np.ndarray) -> Any:
