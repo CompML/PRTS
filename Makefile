@@ -4,6 +4,17 @@ POETRY_RUN := poetry run
 PYTHON := $(POETRY_RUN) python
 
 # -------------------------
+# install
+# -------------------------
+.PHONY: install
+install: ## install this project
+	poetry install --no-dev
+
+.PHONY: develop
+develop: ## setup project for development
+	poetry install
+
+# -------------------------
 # test
 # -------------------------
 .PHONY: unittest

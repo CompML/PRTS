@@ -9,7 +9,7 @@ class TimeSeriesPrecision(InterfaceTimeSeriesMetrics):
     """ This class calculates precision for time series """
 
     def __init__(self, beta=1.0, alpha=0.0, cardinality="one", bias="flat"):
-        """ Constructor
+        """Constructor
 
         Args:
             beta (float, optional): 0 < beta. Defaults to 1.0.

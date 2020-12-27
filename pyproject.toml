@@ -1,23 +1,25 @@
 [tool.poetry]
 name = "prts"
 version = "0.1.0"
-description = ""
-authors = ["Ryohei Izawa <rizawa@ridge-i.com>", "Ryosuke Sato<ryosuke.sato.sr@gmail.com>", "Masanari Kimura<mkimura@ism.ac.jp>"]
+description=""
+readme = "README.md"
+license = "LICENSE"
+authors = ["Ryohei Izawa <rizawa@ridge-i.com>", "Ryosuke Sato<sarrrrry.sarrrrry@gmail.com>", "Masanari Kimura<mkimura@ism.ac.jp>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
 numpy = "^1.19.4"
+
+[tool.poetry.dev-dependencies]
+sklearn = "^0.0"
+matplotlib = "^3.3.3"
+seaborn = "^0.11.1"
 flake8 = "^3.8.4"
 autoflake = "^1.4"
 isort = "^5.6.4"
 black = "^20.8b1"
 pytest = "^6.2.1"
 pytest-cov = "^2.10.1"
-
-[tool.poetry.dev-dependencies]
-sklearn = "^0.0"
-matplotlib = "^3.3.3"
-seaborn = "^0.11.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
