@@ -1,15 +1,15 @@
-from prts.interfaces.time_series_metrics import InterfaceTimeSeriesMetrics
+from prts.base.time_series_metrics import BaseTimeSeriesMetrics
 from prts.time_series_metrics.recall import TimeSeriesRecall
 
 import unittest
 
 class TestRecall(unittest.TestCase):
-    def test_recall_inherited_InterfaceTimeSeriesMetrics(self):
-        """ InterfaceTimeSeriesMetircsを継承しているかチェック
+    def test_recall_inherited_BaseTimeSeriesMetrics(self):
+        """ BaseTimeSeriesMetircsを継承しているかチェック
         """
         recall = TimeSeriesRecall()
         self.assertTrue(
-            isinstance(recall, InterfaceTimeSeriesMetrics)
+            isinstance(recall, BaseTimeSeriesMetrics)
         )
 
 
