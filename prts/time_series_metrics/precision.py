@@ -1,12 +1,10 @@
-from typing import Any
-
 import numpy as np
 
 from prts.base.time_series_metrics import BaseTimeSeriesMetrics
 
 
 class TimeSeriesPrecision(BaseTimeSeriesMetrics):
-    """ This class calculates precision for time series """
+    """ This class calculates precision for time series"""
 
     def __init__(self, alpha=0.0, cardinality="one", bias="flat"):
         """Constructor
@@ -25,15 +23,17 @@ class TimeSeriesPrecision(BaseTimeSeriesMetrics):
         self.cardinality = cardinality
         self.bias = bias
 
-    def score(self, real: np.ndarray, pred: np.ndarray) -> Any:
-        """
+    def score(self, real: np.ndarray, pred: np.ndarray) -> float:
+        """Computing precision score
 
         Args:
-            real:
-            pred:
+            real (np.ndarray):
+                One-dimensional array of correct answers with values of 1 or 0.
+            pred (np.ndarray):
+                One-dimensional array of predicted answers with values of 1 or 0.
 
         Returns:
-
+            float: precision
         """
 
         assert isinstance(real, np.ndarray)
@@ -43,7 +43,20 @@ class TimeSeriesPrecision(BaseTimeSeriesMetrics):
 
         return precision
 
-    def _update_precision(self, real_anomalies, predicted_anomalies):
+    def _update_precision(self, real_anomalies: np.ndarray, predicted_anomalies: np.ndarray) -> float:
+        """Update precision
+
+        Args:
+            real_anomalies (np.ndarray):
+                2-dimensional array of the first and last indexes of each real anomaly range.
+                e.g. np.array([[1933,  1953],[1958,  2000], ...])
+            predicted_anomalies (np.ndarray):
+                2-dimensional array of the first and last indexes of each predicted anomaly range.
+                e.g. np.array([[1933,  1953],[1958,  2000], ...])
+
+        Returns:
+            float: precision
+        """
         precision = 0
         if len(predicted_anomalies) == 0:
             return 0
