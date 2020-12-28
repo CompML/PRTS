@@ -57,6 +57,14 @@ print("recall_middle=", recall_middle)
 print("recall_back=", recall_back)
 ```
 
+### Parameters
+
+| Parameter   | Description                                                          | Type   |
+|-------------|----------------------------------------------------------------------|--------|
+| alpha       | Relative importance of existence reward (0 ≤ alpha ≤ 1).             | float  |
+| cardinality | Cardinality type. This should be "one", "reciprocal" or "udf_gamma"  | string |
+| bias        | Positional bias. This should be "flat", "front", "middle", or "back" | string |
+
 ## Examples
 
 We provide a simple example code.
