@@ -1,5 +1,6 @@
 from prts.base.time_series_metrics import BaseTimeSeriesMetrics
 from prts.time_series_metrics.recall import TimeSeriesRecall
+from prts import ts_recall
 
 import unittest
 
@@ -13,3 +14,12 @@ class TestRecall(unittest.TestCase):
         )
 
 
+    def test_recall_function_with_list(self):
+        """Teest of ts_recall function with list type arguments.
+        """
+
+        real = [1, 1, 0, 0, 0]
+        pred = [1, 1, 1, 1, 0]
+
+        score = ts_recall(real, pred)
+        self.assertEqual(score, 1.0)

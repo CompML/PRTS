@@ -46,3 +46,13 @@ class TestPrecision(unittest.TestCase):
 
         score = ts_precision(real, pred)
         self.assertEqual(score, 1.0)
+
+    def test_precision_function_with_list(self):
+        """Teest of ts_precision function with list type arguments.
+        """
+
+        real = [1, 1, 0, 0, 0]
+        pred = [0, 1, 0, 0, 0]
+
+        score = ts_precision(real, pred)
+        self.assertEqual(score, 1.0)

@@ -35,8 +35,14 @@ class TimeSeriesRecall(BaseTimeSeriesMetrics):
             float: recall
         """
 
-        assert isinstance(real, np.ndarray)
-        assert isinstance(pred, np.ndarray)
+        assert isinstance(real, np.ndarray) or isinstance(real, list)
+        assert isinstance(pred, np.ndarray) or isinstance(pred, list)
+
+        if not isinstance(real, np.ndarray):
+            real = np.array(real)
+        if not isinstance(pred, np.ndarray):
+            pred = np.array(pred)
+
         real_anomalies, predicted_anomalies = self._prepare_data(real, pred)
         recall = self._update_recall(real_anomalies, predicted_anomalies)
 
