@@ -1,3 +1,5 @@
+from typing import Union
+
 import numpy as np
 
 from prts.base.time_series_metrics import BaseTimeSeriesMetrics
@@ -23,13 +25,13 @@ class TimeSeriesRecall(BaseTimeSeriesMetrics):
         self.cardinality = cardinality
         self.bias = bias
 
-    def score(self, real: np.ndarray, pred: np.ndarray) -> float:
+    def score(self, real: Union[np.ndarray, list], pred: Union[np.ndarray, list]) -> float:
         """Computing recall score
 
         Args:
-            real (np.ndarray):
+            real (np.ndarray or list):
                 One-dimensional array of correct answers with values of 1 or 0.
-            pred (np.ndarray):
+            pred (np.ndarray or list):
                 One-dimensional array of predicted answers with values of 1 or 0.
         Returns:
             float: recall
