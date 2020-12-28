@@ -12,18 +12,20 @@ def ts_precision(real, pred, beta=1.0, alpha=0.0, cardinality="one", bias="flat"
     α represents the relative importance of rewarding existence, whereas
     (1 − α) represents the relative importance of rewarding size, position, and cardinality.
 
-    "ExistenceReward" is 1 if a real anomaly range has overlap with even a single point of the predicted anomaly range, 0 otherwise.
-    Note: For prediction, there is no need for an existence reward, since precision by definition 
-          emphasizes prediction quality, and existence by itself is too low a bar for judging 
+    "ExistenceReward" is 1 if a real anomaly range has overlap with even a single point of
+    the predicted anomaly range, 0 otherwise.
+    Note: For prediction, there is no need for an existence reward, since precision by definition
+          emphasizes prediction quality, and existence by itself is too low a bar for judging
           the quality of a prediction (i.e., α = 0).
 
     "OverlapReward" is calculated by the following formula.
         OverlapReward = CardinalityFactor x Sum of ω
     "CardinalityFactor" is 1 if the predicted anomaly range overlaps with only one real anomaly range.
     Otherwise it receives 0 ≤ γ() ≤ 1 defined by the application.
-    "CardinalityFactor" serves as a scaling factor for the rewards "ω"s, which is earned from overlap size and position.
-    In determing "ω", we consider the size of the correctly predicted portion of an predicted anomaly range and the relative 
-    position of the correctly predicted portion of an predicted anomaly range.
+    "CardinalityFactor" serves as a scaling factor for the rewards "ω"s, which is earned from overlap
+    size and position.
+    In determing "ω", we consider the size of the correctly predicted portion of an predicted anomaly
+    range and the relative position of the correctly predicted portion of an predicted anomaly range.
 
     Args:
         real: np.ndarray
@@ -62,8 +64,10 @@ def ts_recall(real, pred, beta=1.0, alpha=0.0, cardinality="one", bias="flat"):
         OverlapReward = CardinalityFactor x Sum of ω
     "CardinalityFactor" is 1 if the real anomaly range overlaps with only one predicted anomaly range.
     Otherwise it receives 0 ≤ γ() ≤ 1 defined by the application.
-    "CardinalityFactor" serves as a scaling factor for the rewards "ω"s, which is earned from overlap size and position.
-    In determing "ω", we consider the size of the correctly predicted portion of the real anomaly range and the relative 
+    "CardinalityFactor" serves as a scaling factor for the rewards "ω"s, which is earned from overlap
+    size and position.
+    In determing "ω", we consider the size of the correctly predicted portion of the real anomaly range
+    and the relative
     position of the correctly predicted portion of the real anomaly range.
 
     Args:
