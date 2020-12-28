@@ -1,7 +1,9 @@
 import unittest
+import numpy as np
 
 from prts.base.time_series_metrics import BaseTimeSeriesMetrics
 from prts.time_series_metrics.precision import TimeSeriesPrecision
+from prts import ts_precision
 
 
 class TestPrecision(unittest.TestCase):
@@ -17,14 +19,12 @@ class TestPrecision(unittest.TestCase):
         """ Test of init function.
         """
 
-        test_case_1 = {'beta': 1.0, 'alpha': 0.0, 'cardinality': 'one', 'bias': 'flat'}
-        test_case_2 = {'beta': 1.0, 'alpha': 0.0, 'cardinality': 'one', 'bias': None}
-        test_case_3 = {'beta': -1, 'alpha': 0.0, 'cardinality': 'one', 'bias': 'flat'}
-        test_case_4 = {'beta': 1.0, 'alpha': 10.0, 'cardinality': 'one', 'bias': 'flat'}
+        test_case_1 = {'alpha': 0.0, 'cardinality': 'one', 'bias': 'flat'}
+        test_case_2 = {'alpha': 0.0, 'cardinality': 'one', 'bias': None}
+        test_case_3 = {'alpha': 10.0, 'cardinality': 'one', 'bias': 'flat'}
 
         # test of the normal call
         obj = TimeSeriesPrecision(**test_case_1)
-        self.assertEqual(obj.beta, test_case_1['beta'])
         self.assertEqual(obj.alpha, test_case_1['alpha'])
         self.assertEqual(obj.cardinality, test_case_1['cardinality'])
         self.assertEqual(obj.bias, test_case_1['bias'])
@@ -33,10 +33,16 @@ class TestPrecision(unittest.TestCase):
         with self.assertRaises(Exception):
             obj = TimeSeriesPrecision(**test_case_2)
 
-        # test of the invalid beta
+        # test of the invalid alpha
         with self.assertRaises(Exception):
             obj = TimeSeriesPrecision(**test_case_3)
 
-        # test of the invalid alpha
-        with self.assertRaises(Exception):
-            obj = TimeSeriesPrecision(**test_case_4)
+    def test_precision_function(self):
+        """Teest of ts_precision function.
+        """
+
+        real = np.array([1, 1, 0, 0, 0])
+        pred = np.array([0, 1, 0, 0, 0])
+
+        score = ts_precision(real, pred)
+        self.assertEqual(score, 1.0)

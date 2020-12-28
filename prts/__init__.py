@@ -2,7 +2,7 @@ from prts.time_series_metrics.precision import TimeSeriesPrecision
 from prts.time_series_metrics.recall import TimeSeriesRecall
 
 
-def ts_precision(real, pred, beta=1.0, alpha=0.0, cardinality="one", bias="flat"):
+def ts_precision(real, pred, alpha=0.0, cardinality="one", bias="flat"):
     """Compute the time series precision.
 
     The time series precision is the average of "Precision_Ti", where "Precision_Ti" is
@@ -32,8 +32,6 @@ def ts_precision(real, pred, beta=1.0, alpha=0.0, cardinality="one", bias="flat"
             One-dimensional array of correct answers with values of 1 or 0.
         pred: np.ndarray
             One-dimensional array of predicted answers with values of 1 or 0.
-        beta: float, default=1.0
-            xx..
         alpha: float, default=0.0
             Relative importance of existence reward. 0 ≤ alpha ≤ 1.
         cardinality: string, default="one"
@@ -44,11 +42,11 @@ def ts_precision(real, pred, beta=1.0, alpha=0.0, cardinality="one", bias="flat"
     Returns:
         float: precision.score
     """
-    precision = TimeSeriesPrecision(beta, alpha, cardinality, bias)
+    precision = TimeSeriesPrecision(alpha, cardinality, bias)
     return precision.score(real, pred)
 
 
-def ts_recall(real, pred, beta=1.0, alpha=0.0, cardinality="one", bias="flat"):
+def ts_recall(real, pred, alpha=0.0, cardinality="one", bias="flat"):
     """Compute the time series recall.
 
     The time series recall is the average of "Recall_Ti", where "Recall_Ti" is
@@ -75,8 +73,6 @@ def ts_recall(real, pred, beta=1.0, alpha=0.0, cardinality="one", bias="flat"):
             One-dimensional array of correct answers with values of 1 or 0.
         pred: np.ndarray
             One-dimensional array of predicted answers with values of 1 or 0.
-        beta: float, default=1.0
-            xx..
         alpha: float, default=0.0
             Relative importance of existence reward. 0 ≤ alpha ≤ 1.
         cardinality: string, default="one"
@@ -87,5 +83,5 @@ def ts_recall(real, pred, beta=1.0, alpha=0.0, cardinality="one", bias="flat"):
     Returns:
         float: recall.score
     """
-    recall = TimeSeriesRecall(beta, alpha, cardinality, bias)
+    recall = TimeSeriesRecall(alpha, cardinality, bias)
     return recall.score(real, pred)
