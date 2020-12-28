@@ -1,5 +1,3 @@
-from typing import Any
-
 import numpy as np
 
 from prts.base.time_series_metrics import BaseTimeSeriesMetrics
@@ -25,15 +23,16 @@ class TimeSeriesRecall(BaseTimeSeriesMetrics):
         self.cardinality = cardinality
         self.bias = bias
 
-    def score(self, real: np.ndarray, pred: np.ndarray) -> Any:
-        """
+    def score(self, real: np.ndarray, pred: np.ndarray) -> float:
+        """Computing recall score
 
         Args:
-            real:
-            pred:
-
+            real (np.ndarray):
+                One-dimensional array of correct answers with values of 1 or 0.
+            pred (np.ndarray):
+                One-dimensional array of predicted answers with values of 1 or 0.
         Returns:
-
+            float: recall
         """
 
         assert isinstance(real, np.ndarray)
@@ -43,7 +42,19 @@ class TimeSeriesRecall(BaseTimeSeriesMetrics):
 
         return recall
 
-    def _update_recall(self, real_anomalies, predicted_anomalies):
+    def _update_recall(self, real_anomalies: np.ndarray, predicted_anomalies: np.ndarray) -> float:
+        """Update recall
+        Args:
+            real_anomalies (np.ndarray):
+                2-dimensional array of the first and last indexes of each real anomaly range.
+                e.g. np.array([[1933,  1953],[1958,  2000], ...])
+            predicted_anomalies (np.ndarray):
+                2-dimensional array of the first and last indexes of each predicted anomaly range.
+                e.g. np.array([[1933,  1953],[1958,  2000], ...])
+        Returns:
+            float: recall
+        """
+
         recall = 0
         if len(real_anomalies) == 0:
             return 0
