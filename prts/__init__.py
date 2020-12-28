@@ -5,10 +5,10 @@ from prts.time_series_metrics.recall import TimeSeriesRecall
 def ts_precision(real, pred, beta=1.0, alpha=0.0, cardinality="one", bias="flat"):
     """Compute the time series precision.
 
-    The time series precision is the average of "Precision_T", where "Precision_T" is
+    The time series precision is the average of "Precision_Ti", where "Precision_Ti" is
     the precision score of each predicted anomaly range.
-    "Precision_T" for a single predicted anomaly range is calculated by the following formula.
-        Precision_T = α x ExistenceReward + (1 - α) x OverlapReward , where 0 ≤ α ≤ 1
+    "Precision_Ti" for a single predicted anomaly range is calculated by the following formula.
+        Precision_Ti = α x ExistenceReward + (1 - α) x OverlapReward , where 0 ≤ α ≤ 1
     α represents the relative importance of rewarding existence, whereas
     (1 − α) represents the relative importance of rewarding size, position, and cardinality.
 
@@ -49,10 +49,10 @@ def ts_precision(real, pred, beta=1.0, alpha=0.0, cardinality="one", bias="flat"
 def ts_recall(real, pred, beta=1.0, alpha=0.0, cardinality="one", bias="flat"):
     """Compute the time series recall.
 
-    The time series recall is the average of "Recall_T", where "Recall_T" is
+    The time series recall is the average of "Recall_Ti", where "Recall_Ti" is
     the recall score of each real anomaly range.
-    "Recall_T" for a single real anomaly range is calculated by the following formula.
-        Recall_T = α x ExistenceReward + (1 - α) x OverlapReward , where 0 ≤ α ≤ 1
+    "Recall_Ti" for a single real anomaly range is calculated by the following formula.
+        Recall_Ti = α x ExistenceReward + (1 - α) x OverlapReward , where 0 ≤ α ≤ 1
     α represents the relative importance of rewarding existence, whereas
     (1 − α) represents the relative importance of rewarding size, position, and cardinality.
 
