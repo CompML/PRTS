@@ -1,7 +1,8 @@
 import numpy as np
 
 from prts.base.time_series_metrics import BaseTimeSeriesMetrics
-from prts import ts_precision, ts_recall
+from prts.time_series_metrics.precision import TimeSeriesPrecision
+from prts.time_series_metrics.recall import TimeSeriesRecall
 
 
 class TimeSeriesFScore(BaseTimeSeriesMetrics):
@@ -43,9 +44,9 @@ class TimeSeriesFScore(BaseTimeSeriesMetrics):
 
         assert isinstance(real, np.ndarray)
         assert isinstance(pred, np.ndarray)
-        real_anomalies, predicted_anomalies = self._prepare_data(real, pred)
-        precision = ts_precision(real_anomalies, predicted_anomalies, self.p_alpha, self.cardinality, self.p_bias)
-        recall = ts_recall(real_anomalies, predicted_anomalies, self.r_alpha, self.cardinality, self.r_bias)
+
+        precision = TimeSeriesPrecision(self.p_alpha, self.cardinality, self.p_bias).score(real, pred)
+        recall = TimeSeriesRecall(self.r_alpha, self.cardinality, self.r_bias).score(real, pred)
 
         if precision + recall != 0:
             f_beta = (1 + self.beta**2)*precision*recall/(self.beta**2*precision + recall)
