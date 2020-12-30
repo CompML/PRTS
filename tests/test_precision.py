@@ -69,3 +69,16 @@ class TestPrecision(unittest.TestCase):
 
         with self.assertRaises(Exception):
             ts_precision(real, pred, alpha=-1)
+
+    def test_precision_function_with_invalid_bias(self):
+        """Test of ts_precision function with invalid bias
+        """
+
+        real = np.array([1, 1, 0, 0, 0])
+        pred = np.array([0, 1, 0, 0, 0])
+
+        with self.assertRaises(Exception):
+            ts_precision(real, pred, bias=None)
+
+        with self.assertRaises(Exception):
+            ts_precision(real, pred, bias="Invalid")
