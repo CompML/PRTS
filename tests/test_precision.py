@@ -48,7 +48,7 @@ class TestPrecision(unittest.TestCase):
         self.assertEqual(score, 1.0)
 
     def test_precision_function_with_list(self):
-        """Teest of ts_precision function with list type arguments.
+        """Teet of ts_precision function with list type arguments.
         """
 
         real = [1, 1, 0, 0, 0]
@@ -56,3 +56,16 @@ class TestPrecision(unittest.TestCase):
 
         score = ts_precision(real, pred)
         self.assertEqual(score, 1.0)
+
+    def test_precision_function_with_invalid_alpha(self):
+        """Test of ts_precision function with invalid alpha
+        """
+
+        real = np.array([1, 1, 0, 0, 0])
+        pred = np.array([0, 1, 0, 0, 0])
+
+        with self.assertRaises(Exception):
+            ts_precision(real, pred, alpha=10)
+
+        with self.assertRaises(Exception):
+            ts_precision(real, pred, alpha=-1)
