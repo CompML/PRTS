@@ -1,3 +1,5 @@
+from typing import Union
+
 import numpy as np
 
 from prts.base.time_series_metrics import BaseTimeSeriesMetrics
@@ -23,21 +25,27 @@ class TimeSeriesPrecision(BaseTimeSeriesMetrics):
         self.cardinality = cardinality
         self.bias = bias
 
-    def score(self, real: np.ndarray, pred: np.ndarray) -> float:
+    def score(self, real: Union[np.ndarray, list], pred: Union[np.ndarray, list]) -> float:
         """Computing precision score
 
         Args:
-            real (np.ndarray):
+            real (np.ndarray or list):
                 One-dimensional array of correct answers with values of 1 or 0.
-            pred (np.ndarray):
+            pred (np.ndarray or list):
                 One-dimensional array of predicted answers with values of 1 or 0.
 
         Returns:
             float: precision
         """
 
-        assert isinstance(real, np.ndarray)
-        assert isinstance(pred, np.ndarray)
+        assert isinstance(real, np.ndarray) or isinstance(real, list)
+        assert isinstance(pred, np.ndarray) or isinstance(pred, list)
+
+        if not isinstance(real, np.ndarray):
+            real = np.array(real)
+        if not isinstance(pred, np.ndarray):
+            pred = np.array(pred)
+
         real_anomalies, predicted_anomalies = self._prepare_data(real, pred)
         precision = self._update_precision(real_anomalies, predicted_anomalies)
 
