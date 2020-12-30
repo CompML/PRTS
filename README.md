@@ -89,3 +89,33 @@ $ make test
 
 ## LICENSE
 This repository is Apache-style licensed, as found in the [LICENSE file](LICENSE).
+
+## Citation
+
+```bibtex
+@software{prts
+    author = {Ryohei Izawa, Ryosuke Sato, Masanari Kimura},
+    titile = {PRTS},
+    url    = {https://github.com/CompML/PRTS},
+    year   = {2020}
+}
+
+@INPROCEEDINGS{Tatbul2018-ci,
+  title     = "Precision and Recall for Time Series",
+  booktitle = "Advances in Neural Information Processing Systems",
+  author    = "Tatbul, Nesime and Lee, Tae Jun and Zdonik, Stan and Alam,
+               Mejbah and Gottschlich, Justin",
+  editor    = "Bengio, S and Wallach, H and Larochelle, H and Grauman, K and
+               Cesa-Bianchi, N and Garnett, R",
+  abstract  = "Classical anomaly detection is principally concerned with
+               point-based anomalies, those anomalies that occur at a single
+               point in time. Yet, many real-world anomalies are range- based,
+               meaning they occur over a period of time. Motivated by this
+               observation, we present …",
+  publisher = "Curran Associates, Inc.",
+  volume    =  31,
+  pages     = "1920--1930",
+  year      =  2018
+}
+
+```
