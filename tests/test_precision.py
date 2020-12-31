@@ -53,6 +53,7 @@ class TestPrecision(unittest.TestCase):
         """Test of _update_precision function.
         """
 
+        # test of the normal case
         real = np.array([1, 1, 0, 0, 0])
         pred = np.array([0, 1, 0, 0, 0])
 
@@ -61,6 +62,13 @@ class TestPrecision(unittest.TestCase):
 
         score = obj._update_precision(real_anomalies, predicted_anomalies)
         self.assertEqual(score, 1.0)
+
+        # test of the empty case
+        empty_real = np.array([])
+        empty_pred = np.array([])
+
+        score = obj._update_precision(empty_real, empty_pred)
+        self.assertEqual(score, 0.0)
 
     def test_precision_function(self):
         """Teest of ts_precision function.
