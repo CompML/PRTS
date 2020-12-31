@@ -15,7 +15,7 @@ This is the open source software released by [Computational Mathematics Laborato
 
 ### PyPI
 
-To install PRTS, use pip.
+PRTS is on [PyPI](https://pypi.org/project/prts/), so you can use pip to install it.
 
 ```bash
 $ pip install prts
