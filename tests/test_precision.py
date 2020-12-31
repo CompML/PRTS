@@ -37,6 +37,19 @@ class TestPrecision(unittest.TestCase):
         with self.assertRaises(Exception):
             obj = TimeSeriesPrecision(**test_case_3)
 
+    def test_PrecisionClass_score(self):
+        """Test of score function.
+        """
+
+        real = np.array([1, 1, 0, 0, 0])
+        pred = np.array([0, 1, 0, 0, 0])
+
+        obj = TimeSeriesPrecision()
+
+        score = obj.score(real, pred)
+        self.assertEqual(score, 1.0)
+
+
     def test_precision_function(self):
         """Teest of ts_precision function.
         """
