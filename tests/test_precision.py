@@ -41,6 +41,7 @@ class TestPrecision(unittest.TestCase):
         """Test of score function.
         """
 
+        # test normal case
         real = np.array([1, 1, 0, 0, 0])
         pred = np.array([0, 1, 0, 0, 0])
 
@@ -48,6 +49,17 @@ class TestPrecision(unittest.TestCase):
 
         score = obj.score(real, pred)
         self.assertEqual(score, 1.0)
+
+        # test invalid inputs
+        real = None
+        pred = np.array([0, 1, 0, 0, 0])
+        with self.assertRaises(Exception):
+            score = obj.score(real, pred)
+
+        real = np.array([1, 1, 0, 0, 0])
+        pred = None
+        with self.assertRaises(Exception):
+            score = obj.score(real, pred)
 
     def test_PrecisionClass_update_precision(self):
         """Test of _update_precision function.
