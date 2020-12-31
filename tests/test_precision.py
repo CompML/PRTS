@@ -86,11 +86,19 @@ class TestPrecision(unittest.TestCase):
         """Teest of ts_precision function.
         """
 
+        # test case1
         real = np.array([1, 1, 0, 0, 0])
         pred = np.array([0, 1, 0, 0, 0])
 
         score = ts_precision(real, pred)
         self.assertEqual(score, 1.0)
+
+        # test case2
+        real = np.array([1, 1, 0, 0, 0])
+        pred = np.array([0, 0, 1, 1, 1])
+
+        score = ts_precision(real, pred)
+        self.assertEqual(score, 0.0)
 
     def test_precision_function_with_list(self):
         """Teet of ts_precision function with list type arguments.
