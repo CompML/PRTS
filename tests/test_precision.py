@@ -49,6 +49,18 @@ class TestPrecision(unittest.TestCase):
         score = obj.score(real, pred)
         self.assertEqual(score, 1.0)
 
+    def test_PrecisionClass_update_precision(self):
+        """Test of _update_precision function.
+        """
+
+        real = np.array([1, 1, 0, 0, 0])
+        pred = np.array([0, 1, 0, 0, 0])
+
+        obj = TimeSeriesPrecision()
+        real_anomalies, predicted_anomalies = obj._prepare_data(real, pred)
+
+        score = obj._update_precision(real_anomalies, predicted_anomalies)
+        self.assertEqual(score, 1.0)
 
     def test_precision_function(self):
         """Teest of ts_precision function.
