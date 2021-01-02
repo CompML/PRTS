@@ -1,5 +1,6 @@
 from prts.time_series_metrics.precision import TimeSeriesPrecision
 from prts.time_series_metrics.recall import TimeSeriesRecall
+from prts.time_series_metrics.fscore import TimeSeriesFScore
 
 
 def ts_precision(real, pred, alpha=0.0, cardinality="one", bias="flat"):
@@ -85,3 +86,36 @@ def ts_recall(real, pred, alpha=0.0, cardinality="one", bias="flat"):
     """
     recall = TimeSeriesRecall(alpha, cardinality, bias)
     return recall.score(real, pred)
+
+
+def ts_fscore(real, pred, beta=1.0, p_alpha=0.0, r_alpha=0.0, cardinality="one", p_bias="flat", r_bias="flat"):
+    """Compute the time series f-score
+
+    The F-beta score is the weighted harmonic mean of precision and recall,
+    reaching its optimal value at 1 and its worst value at 0.
+    The beta parameter determines the weight of recall in the combined score.
+    beta < 1 lends more weight to precision, while beta > 1 favors recall
+    (beta -> 0 considers only precision, beta -> +inf only recall).
+
+    Args:
+        real: np.ndarray
+            One-dimensional array of correct answers with values of 1 or 0.
+        pred: np.ndarray
+            One-dimensional array of predicted answers with values of 1 or 0.
+        p_alpha: float, default=0.0
+            Relative importance of existence reward for precision. 0 ≤ alpha ≤ 1.
+        r_alpha: float, default=0.0
+            Relative importance of existence reward for recall. 0 ≤ alpha ≤ 1.
+        cardinality: string, default="one"
+            Cardinality type. This should be "one", "reciprocal" or "udf_gamma".
+        p_bias: string, default="flat"
+            Positional bias for precision. This should be "flat", "front", "middle", or "back"
+        r_bias: string, default="flat"
+            Positional bias for recall. This should be "flat", "front", "middle", or "back"
+
+    Returns:
+        float: f.score
+    """
+
+    fscore = TimeSeriesFScore(beta, p_alpha, r_alpha, cardinality, p_bias, r_bias)
+    return fscore.score(real, pred)
