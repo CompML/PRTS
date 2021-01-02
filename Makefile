@@ -21,7 +21,7 @@ develop: ## setup project for development
 # -------------------------
 .PHONY: unittest
 unittest: ## run unit test for api with coverage
-	$(PYTHON) -m pytest --durations=0 --cov=prts tests
+	$(PYTHON) -m pytest -v --durations=0 --cov-report=term-missing --cov=prts tests
 
 .PHONY: test
 test:  ## run all test
