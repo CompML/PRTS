@@ -20,7 +20,7 @@ class TimeSeriesFScore(BaseTimeSeriesMetrics):
             r_bias (str, optional): bias of recall, ["flat", "front", "middle", "back"]. Defaults to "flat".
         """
 
-        assert (beta >= 0)
+        assert beta >= 0
 
         self.beta = beta
         self.p_alpha = p_alpha
@@ -49,7 +49,7 @@ class TimeSeriesFScore(BaseTimeSeriesMetrics):
         recall = TimeSeriesRecall(self.r_alpha, self.cardinality, self.r_bias).score(real, pred)
 
         if precision + recall != 0:
-            f_beta = (1 + self.beta**2)*precision*recall/(self.beta**2*precision + recall)
+            f_beta = (1 + self.beta ** 2) * precision * recall / (self.beta ** 2 * precision + recall)
         else:
             f_beta = 0
 

@@ -1,6 +1,6 @@
+from prts.time_series_metrics.fscore import TimeSeriesFScore
 from prts.time_series_metrics.precision import TimeSeriesPrecision
 from prts.time_series_metrics.recall import TimeSeriesRecall
-from prts.time_series_metrics.fscore import TimeSeriesFScore
 
 
 def ts_precision(real, pred, alpha=0.0, cardinality="one", bias="flat"):
