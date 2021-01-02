@@ -37,6 +37,30 @@ class TestRecall(unittest.TestCase):
         with self.assertRaises(Exception):
             obj = TimeSeriesRecall(**test_case_3)
 
+    def test_RecallClass_score(self):
+        """Test of score function.
+        """
+
+        # test normal case
+        real = np.array([1, 1, 0, 0, 0])
+        pred = np.array([0, 1, 0, 0, 0])
+
+        obj = TimeSeriesRecall()
+
+        score = obj.score(real, pred)
+        self.assertEqual(score, 0.5)
+
+        # test invalid inputs
+        real = None
+        pred = np.array([0, 1, 0, 0, 0])
+        with self.assertRaises(Exception):
+            score = obj.score(real, pred)
+
+        real = np.array([1, 1, 0, 0, 0])
+        pred = None
+        with self.assertRaises(Exception):
+            score = obj.score(real, pred)
+
     def test_recall_function(self):
         """Teest of ts_recall function.
         """
