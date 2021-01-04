@@ -41,3 +41,13 @@ class TestFScore(unittest.TestCase):
 
         score = ts_fscore(real, pred)
         self.assertEqual(score, 0.5)
+
+    def test_fscore_function_with_list(self):
+        """Teest of ts_fscore function with list type arguments.
+        """
+
+        real = [1, 1, 1, 0, 0]
+        pred = [0, 1, 0, 0, 0]
+
+        score = ts_fscore(real, pred)
+        self.assertEqual(score, 0.5)

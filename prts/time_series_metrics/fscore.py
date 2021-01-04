@@ -42,8 +42,13 @@ class TimeSeriesFScore(BaseTimeSeriesMetrics):
             float: fbeta
         """
 
-        assert isinstance(real, np.ndarray)
-        assert isinstance(pred, np.ndarray)
+        assert isinstance(real, np.ndarray) or isinstance(real, list)
+        assert isinstance(pred, np.ndarray) or isinstance(pred, list)
+
+        if not isinstance(real, np.ndarray):
+            real = np.array(real)
+        if not isinstance(pred, np.ndarray):
+            pred = np.array(pred)
 
         precision = TimeSeriesPrecision(self.p_alpha, self.cardinality, self.p_bias).score(real, pred)
         recall = TimeSeriesRecall(self.r_alpha, self.cardinality, self.r_bias).score(real, pred)
