@@ -93,11 +93,14 @@ This repository is Apache-style licensed, as found in the [LICENSE file](LICENSE
 ## Citation
 
 ```bibtex
-@software{prts
-    author = {Ryohei Izawa, Ryosuke Sato, Masanari Kimura},
-    titile = {PRTS},
-    url    = {https://github.com/CompML/PRTS},
-    year   = {2020}
+@software{https://doi.org/10.5281/zenodo.4428056,
+  doi = {10.5281/ZENODO.4428056},
+  url = {https://zenodo.org/record/4428056},
+  author = {Ryohei Izawa, Ryosuke Sato, Masanari Kimura},
+  title = {PRTS: Python Library for Time Series Metrics},
+  publisher = {Zenodo},
+  year = {2021},
+  copyright = {Open Access}
 }
 
 ```
