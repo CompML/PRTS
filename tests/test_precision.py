@@ -135,3 +135,23 @@ class TestPrecision(unittest.TestCase):
 
         with self.assertRaises(Exception):
             ts_precision(real, pred, bias="Invalid")
+
+    def test_precision_function_with_all_zeros(self):
+        """Test of ts_precision function with all zero values
+        """
+
+        real = np.array([0, 0, 0, 0, 0])
+        pred = np.array([0, 0, 0, 0, 0])
+
+        with self.assertRaises(Exception):
+            ts_precision(real, pred)
+
+    def test_precision_function_with_all_ones(self):
+        """Test of ts_precision function with all zero values
+        """
+
+        real = np.array([1, 1, 1, 1, 1])
+        pred = np.array([1, 1, 1, 1, 1])
+
+        self.assertEqual(ts_precision(real, pred), 1.0)
+

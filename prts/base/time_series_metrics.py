@@ -127,8 +127,8 @@ class BaseTimeSeriesMetrics:
     def _prepare_data(self, values_real, values_pred):
 
         assert len(values_real) == len(values_pred)
-        assert np.allclose(np.unique(values_real), np.array([0, 1]))
-        assert np.allclose(np.unique(values_pred), np.array([0, 1]))
+        assert np.allclose(np.unique(values_real), np.array([0, 1])) or np.allclose(np.unique(values_real), np.array([1]))
+        assert np.allclose(np.unique(values_pred), np.array([0, 1])) or np.allclose(np.unique(values_pred), np.array([1]))
 
         predicted_anomalies_ = np.argwhere(values_pred == 1).ravel()
         predicted_anomalies_shift_forward = self._shift(predicted_anomalies_, 1, fill_value=predicted_anomalies_[0])
