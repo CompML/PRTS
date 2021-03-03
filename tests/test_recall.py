@@ -62,7 +62,7 @@ class TestRecall(unittest.TestCase):
             score = obj.score(real, pred)
 
     def test_recall_function(self):
-        """Teest of ts_recall function.
+        """Test of ts_recall function.
         """
 
         # test case1
